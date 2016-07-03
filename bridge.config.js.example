@@ -1,0 +1,6 @@
+// see documentation for username generation instructions: http://www.developers.meethue.com/documentation/getting-started
+const config = {
+    username: '<username from bridge>'
+};
+
+module.exports = config;
