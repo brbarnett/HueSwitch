@@ -1,7 +1,7 @@
 'use strict';
 
-const huejay = require('huejay');
-const _ = require('lodash');
+const huejay = require('huejay');   // https://github.com/sqmk/huejay
+const _ = require('lodash');    // https://lodash.com/docs
 
 const config = require('./bridge.config');
 
