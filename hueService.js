@@ -5,15 +5,12 @@ const _ = require('lodash');    // https://lodash.com/docs
 
 function authenticate(client) {
     return client.bridge.isAuthenticated()
-        .then(() => {
-            return client;
-        })
         .catch(error => {
             console.log('Could not authenticate');
         });
 }
 
-function connectAndAuthenticate(client) {
+function ensureConnectedAndAuthenticated(client) {
     return client.bridge.ping()
         .then(() => {
             return authenticate(client);
@@ -68,7 +65,7 @@ function toggleGroup(client, group) {
 }
 
 module.exports = {
-    connectAndAuthenticate: connectAndAuthenticate,
+    ensureConnectedAndAuthenticated: ensureConnectedAndAuthenticated,
     getBridgeClient: getBridgeClient,
     getGroupByName: getGroupByName,
     toggleGroup: toggleGroup

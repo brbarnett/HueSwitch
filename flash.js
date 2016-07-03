@@ -7,8 +7,8 @@ const hue = require('./hueService');
 (() => {
     hue.getBridgeClient(config)
         .then(client => {
-            hue.connectAndAuthenticate(client)
-                .then(client => {
+            hue.ensureConnectedAndAuthenticated(client)
+                .then(() => {
                     hue.getGroupByName(client, 'Kitchen')
                         .then(group => {
                             hue.toggleGroup(client, group);
