@@ -3,8 +3,6 @@
 const huejay = require('huejay');   // https://github.com/sqmk/huejay
 const _ = require('lodash');    // https://lodash.com/docs
 
-const config = require('./bridge.config');
-
 function authenticate(client) {
     return client.bridge.isAuthenticated()
         .then(() => {
@@ -25,7 +23,7 @@ function connectAndAuthenticate(client) {
         });
 }
 
-function getBridgeClient() {
+function getBridgeClient(config) {
     return huejay.discover({ strategy: 'all' })
         .then(bridges => {
             if (!bridges.length) {

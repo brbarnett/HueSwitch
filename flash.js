@@ -1,10 +1,11 @@
 'use strict';
 
+const config = require('./bridge.config');
 const hue = require('./hueService');
 
 // this initializes connection to Hue bridge and toggles a single group on/off
 (() => {
-    hue.getBridgeClient()
+    hue.getBridgeClient(config)
         .then(client => {
             hue.connectAndAuthenticate(client)
                 .then(client => {
